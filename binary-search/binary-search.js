@@ -1,8 +1,23 @@
 'use strict';
 
+[0, 1, 2, 4, 5]
+
+
 // Complete this algo
 const binarySearch = (array, target) => {
-	
+	let midIndex = Math.floor(array.length / 2);
+	while (midIndex !== 0 && midIndex !== array.length - 1) {
+		if (target < array[midIndex]) {
+			midIndex -= 1;
+		}
+		if (target > array[midIndex]) {
+			midIndex += 1
+		}
+		if (target === array[midIndex]) {
+			return true;
+		}
+	}
+	return false
 };
 
 /*
