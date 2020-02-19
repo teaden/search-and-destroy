@@ -5,19 +5,20 @@
 
 // Complete this algo
 const binarySearch = (array, target) => {
-	let midIndex = Math.floor(array.length / 2);
-	while (midIndex !== 0 && midIndex !== array.length - 1) {
-		if (target < array[midIndex]) {
-			midIndex -= 1;
-		}
-		if (target > array[midIndex]) {
-			midIndex += 1
-		}
-		if (target === array[midIndex]) {
+	let leftIndex = 0;
+	let rightIndex = array.length - 1;
+	while (leftIndex <= rightIndex) {
+		let middleIndex = Math.floor((leftIndex + rightIndex) / 2)
+
+		if (target === array[middleIndex]) {
 			return true;
+		} else if (target < array[middleIndex]) {
+			rightIndex = middleIndex - 1;
+		} else {
+			leftIndex = middleIndex + 1;
 		}
 	}
-	return false
+	return false;
 };
 
 /*
